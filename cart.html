@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+  <title>Shopping Cart</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="displayCart()">
+
+<header>
+
+  <div class="logo">
+    MyShop
+  </div>
+
+  <nav>
+
+    <a href="index.html">Home</a>
+
+    <a href="products.html">
+      Products
+    </a>
+
+    <a href="cart.html">
+      Cart
+      (<span id="cart-count">0</span>)
+    </a>
+
+  </nav>
+
+</header>
+
+<div class="cart-container">
+
+  <h1 class="cart-title">
+    Your Shopping Cart
+  </h1>
+
+  <div id="cart-items">
+
+  </div>
+
+  <div class="cart-summary">
+
+    <h2>
+      Total:
+      ₹<span id="total-price">0</span>
+    </h2>
+
+    <button
+    id="checkout-btn"
+    onclick="goToCheckout()">
+
+      Proceed To Payment
+
+    </button>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

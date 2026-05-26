@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Order Success</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="success-container">
+
+<div class="success-box">
+
+<h1>
+Order Successful
+</h1>
+
+<p>
+Your order has been placed successfully.
+</p>
+
+<h3>
+Payment Method:
+<span id="payment-method"></span>
+</h3>
+
+<h3>
+Order Date:
+<span id="order-date"></span>
+</h3>
+
+<h3>
+Expected Delivery:
+<span id="delivery-date"></span>
+</h3>
+
+<a href="tracking.html">
+
+<button>
+
+Track Your Order
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById(
+"payment-method"
+).innerText =
+localStorage.getItem(
+"paymentMethod"
+);
+
+document.getElementById(
+"order-date"
+).innerText =
+localStorage.getItem(
+"orderDate"
+);
+
+document.getElementById(
+"delivery-date"
+).innerText =
+localStorage.getItem(
+"deliveryDate"
+);
+
+</script>
+
+</body>
+</html>

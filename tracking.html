@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Track Order</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="tracking-container">
+
+<h1 class="page-title">
+
+Track Your Order
+
+</h1>
+
+<div class="tracking-box">
+
+<div class="tracking-step active">
+
+Order Confirmed
+
+</div>
+
+<div class="tracking-step active">
+
+Packed
+
+</div>
+
+<div class="tracking-step active">
+
+Shipped
+
+</div>
+
+<div class="tracking-step">
+
+Out For Delivery
+
+</div>
+
+<div class="tracking-step">
+
+Delivered
+
+</div>
+
+<h3>
+
+Expected Delivery:
+<span id="track-date"></span>
+
+</h3>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById(
+"track-date"
+).innerText =
+localStorage.getItem(
+"deliveryDate"
+);
+
+</script>
+
+</body>
+</html>

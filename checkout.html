@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Checkout</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="loadCheckout()">
+
+<header>
+
+<div class="logo">
+MyShop
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="products.html">
+Products
+</a>
+
+<a href="cart.html">
+Cart
+(<span id="cart-count">0</span>)
+</a>
+
+</nav>
+
+</header>
+
+<div class="checkout-container">
+
+<h1 class="page-title">
+Checkout
+</h1>
+
+<div class="checkout-box">
+
+<div id="checkout-items">
+
+</div>
+
+<div class="checkout-total">
+
+<h2>
+Grand Total:
+₹<span id="checkout-total">0</span>
+</h2>
+
+</div>
+
+<h2 class="payment-title">
+Choose Payment Method
+</h2>
+
+<div class="payment-options">
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="gpay"
+checked>
+
+Google Pay
+
+</label>
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="card">
+
+Credit / Debit Card
+
+</label>
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="payment"
+value="cod">
+
+Cash On Delivery
+
+</label>
+
+</div>
+
+<div id="upi-box">
+
+<input
+type="text"
+id="upi-id"
+placeholder="Enter UPI ID">
+
+</div>
+
+<button onclick="placeOrder()">
+
+Place Order
+
+</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

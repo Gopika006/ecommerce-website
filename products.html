@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>All Products</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">MyShop</div>
+
+  <nav>
+
+    <a href="index.html">Home</a>
+
+    <a href="products.html">Products</a>
+
+    <a href="cart.html">
+      Cart (<span id="cart-count">0</span>)
+    </a>
+
+  </nav>
+
+</header>
+
+<h1 class="title">All Products</h1>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Products..."
+onkeyup="searchProducts()"
+class="search-bar">
+
+<section class="products-grid">
+
+<!-- DRESS -->
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800">
+<h3>Party Dress</h3>
+<p><del>₹2999</del> ₹1999</p>
+
+<button onclick="addToCart(
+'Party Dress',
+1999,
+'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800'
+)">
+Add To Cart
+</button>
+
+</div>
+
+<!-- SKINCARE -->
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=800">
+<h3>Face Serum</h3>
+<p><del>₹999</del> ₹699</p>
+
+<button onclick="addToCart(
+'Face Serum',
+699,
+'https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=800'
+)">
+Add To Cart
+</button>
+
+</div>
+
+<!-- MAKEUP -->
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800">
+<h3>Lipstick Kit</h3>
+<p><del>₹1999</del> ₹1299</p>
+
+<button onclick="addToCart(
+'Lipstick Kit',
+1299,
+'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800'
+)">
+Add To Cart
+</button>
+
+</div>
+
+<!-- KITCHEN -->
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1584990347449-a8235d0b4e5c?q=80&w=800">
+<h3>Cookware Set</h3>
+<p><del>₹4999</del> ₹2999</p>
+
+<button onclick="addToCart(
+'Cookware Set',
+2999,
+'https://images.unsplash.com/photo-1584990347449-a8235d0b4e5c?q=80&w=800'
+)">
+Add To Cart
+</button>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+
+<script>
+updateCartCount();
+</script>
+
+</body>
+</html>
