@@ -1,43 +1,43 @@
 const products = [
 
   {
-    id:1,
-    name:"Red Dress",
-    price:1499,
-    category:"dress",
-    image:"https://images.unsplash.com/photo-1496747611176-843222e1e57c"
+    id: 1,
+    name: "Red Dress",
+    price: 1499,
+    category: "dress",
+    image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
   },
 
   {
-    id:2,
-    name:"Lipstick",
-    price:499,
-    category:"makeup",
-    image:"https://images.unsplash.com/photo-1586495777744-4413f21062fa"
+    id: 2,
+    name: "Lipstick",
+    price: 499,
+    category: "makeup",
+    image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa"
   },
 
   {
-    id:3,
-    name:"Face Cream",
-    price:799,
-    category:"skincare",
-    image:"https://images.unsplash.com/photo-1556228578-8c89e6adf883"
+    id: 3,
+    name: "Face Cream",
+    price: 799,
+    category: "skincare",
+    image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883"
   },
 
   {
-    id:4,
-    name:"Kitchen Pan",
-    price:1299,
-    category:"kitchen",
-    image:"https://images.unsplash.com/photo-1584990347449-a8b2c2d8b7f0"
+    id: 4,
+    name: "Kitchen Pan",
+    price: 1299,
+    category: "kitchen",
+    image: "https://images.unsplash.com/photo-1584990347449-a8b2c2d8b7f0"
   },
 
   {
-    id:5,
-    name:"Hand Bag",
-    price:999,
-    category:"accessories",
-    image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3"
+    id: 5,
+    name: "Hand Bag",
+    price: 999,
+    category: "accessories",
+    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3"
   }
 
 ];
@@ -48,13 +48,13 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const productsContainer = document.getElementById("products");
 
-if(productsContainer){
+if (productsContainer) {
 
   displayProducts(products);
 
 }
 
-function displayProducts(items){
+function displayProducts(items) {
 
   productsContainer.innerHTML = "";
 
@@ -81,32 +81,36 @@ function displayProducts(items){
       </div>
 
     `;
+
   });
+
 }
 
 // FILTER PRODUCTS
 
-function filterProducts(category){
+function filterProducts(category) {
 
-  if(category === "all"){
+  if (category === "all") {
 
     displayProducts(products);
 
-  }else{
+  } else {
 
     const filtered = products.filter(product =>
       product.category === category
     );
 
     displayProducts(filtered);
+
   }
+
 }
 
 // SEARCH PRODUCTS
 
 const searchInput = document.getElementById("searchInput");
 
-if(searchInput){
+if (searchInput) {
 
   searchInput.addEventListener("keyup", () => {
 
@@ -119,25 +123,26 @@ if(searchInput){
     displayProducts(filtered);
 
   });
+
 }
 
 // ADD TO CART
 
-function addToCart(id){
+function addToCart(id) {
 
   const product = products.find(item => item.id === id);
 
   const existing = cart.find(item => item.id === id);
 
-  if(existing){
+  if (existing) {
 
     existing.quantity += 1;
 
-  }else{
+  } else {
 
     cart.push({
       ...product,
-      quantity:1
+      quantity: 1
     });
 
   }
@@ -152,18 +157,20 @@ function addToCart(id){
 
 // UPDATE CART COUNT
 
-function updateCartCount(){
+function updateCartCount() {
 
   const cartCount = document.getElementById("cartCount");
 
-  if(cartCount){
+  if (cartCount) {
 
-    const totalQty = cart.reduce((acc,item)=>{
+    const totalQty = cart.reduce((acc, item) => {
       return acc + item.quantity;
-    },0);
+    }, 0);
 
     cartCount.innerText = totalQty;
+
   }
+
 }
 
 updateCartCount();
@@ -171,21 +178,21 @@ updateCartCount();
 // CART PAGE
 
 const cartItems = document.getElementById("cartItems");
-
 const cartTotal = document.getElementById("cartTotal");
 
-if(cartItems){
+if (cartItems) {
 
   renderCart();
+
 }
 
-function renderCart(){
+function renderCart() {
 
   cartItems.innerHTML = "";
 
   let total = 0;
 
-  if(cart.length === 0){
+  if (cart.length === 0) {
 
     cartItems.innerHTML = `
       <h2>Your Cart Is Empty</h2>
@@ -194,6 +201,7 @@ function renderCart(){
     cartTotal.innerText = "";
 
     return;
+
   }
 
   cart.forEach(item => {
@@ -214,13 +222,13 @@ function renderCart(){
 
         <div class="qty-controls">
 
-          <button onclick="changeQty(${item.id},-1)">
+          <button onclick="changeQty(${item.id}, -1)">
             -
           </button>
 
           ${item.quantity}
 
-          <button onclick="changeQty(${item.id},1)">
+          <button onclick="changeQty(${item.id}, 1)">
             +
           </button>
 
@@ -229,22 +237,25 @@ function renderCart(){
       </div>
 
     `;
+
   });
 
   cartTotal.innerText = `Total: ₹${total}`;
+
 }
 
 // CHANGE QUANTITY
 
-function changeQty(id,value){
+function changeQty(id, value) {
 
   const item = cart.find(product => product.id === id);
 
   item.quantity += value;
 
-  if(item.quantity <= 0){
+  if (item.quantity <= 0) {
 
     cart = cart.filter(product => product.id !== id);
+
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -252,20 +263,21 @@ function changeQty(id,value){
   renderCart();
 
   updateCartCount();
+
 }
 
 // CHECKOUT PAGE
 
 const checkoutItems = document.getElementById("checkoutItems");
-
 const checkoutTotal = document.getElementById("checkoutTotal");
 
-if(checkoutItems){
+if (checkoutItems) {
 
   renderCheckout();
+
 }
 
-function renderCheckout(){
+function renderCheckout() {
 
   checkoutItems.innerHTML = "";
 
@@ -286,52 +298,53 @@ function renderCheckout(){
       </div>
 
     `;
+
   });
 
   checkoutTotal.innerText = `Total: ₹${total}`;
+
 }
 
 // SHOW CARD FIELDS
 
-function showCardFields(){
+function showCardFields() {
 
   document.getElementById("cardFields")
     .classList.remove("hidden");
+
 }
 
 // VALIDATE SHIPPING
 
-function validateShipping(){
+function validateShipping() {
 
   const name = document.getElementById("name").value;
-
   const email = document.getElementById("email").value;
-
   const address = document.getElementById("address").value;
-
   const city = document.getElementById("city").value;
-
   const pincode = document.getElementById("pincode").value;
 
-  if(
+  if (
     name === "" ||
     email === "" ||
     address === "" ||
     city === "" ||
     pincode === ""
-  ){
+  ) {
 
     alert("Please Fill All Shipping Details");
 
     return false;
+
   }
 
   return true;
+
 }
 
 // SAVE ORDER
 
-function saveOrder(paymentMethod){
+function saveOrder(paymentMethod) {
 
   const today = new Date();
 
@@ -341,17 +354,17 @@ function saveOrder(paymentMethod){
 
   const order = {
 
-    items:cart,
+    items: cart,
 
-    paymentMethod:paymentMethod,
+    paymentMethod: paymentMethod,
 
-    orderDate:today.toDateString(),
+    orderDate: today.toDateString(),
 
-    deliveryDate:delivery.toDateString(),
+    deliveryDate: delivery.toDateString(),
 
-    total:cart.reduce((acc,item)=>{
+    total: cart.reduce((acc, item) => {
       return acc + item.price * item.quantity;
-    },0)
+    }, 0)
 
   };
 
@@ -360,13 +373,14 @@ function saveOrder(paymentMethod){
     JSON.stringify(order)
   );
 
+  // CLEAR CART AFTER SUCCESS
   localStorage.removeItem("cart");
 
   cart = [];
 
 }
 
-// GOOGLE PAY UPDATED FLOW
+// GOOGLE PAY REAL FLOW
 
 function payWithGPay() {
 
@@ -374,11 +388,13 @@ function payWithGPay() {
 
   if (cart.length === 0) {
 
-    alert("Cart is empty");
+    alert("Your cart is empty");
 
     return;
+
   }
 
+  // TOTAL AMOUNT
   const total = cart.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);
@@ -389,66 +405,82 @@ function payWithGPay() {
   // STORE NAME
   const merchantName = "GlowMart";
 
-  // PAYMENT NOTE
-  const transactionNote = "Shopping Payment";
+  // TRANSACTION NOTE
+  const note = "GlowMart Ecommerce Payment";
 
-  // ENCODED UPI LINK
-  const upiLink =
-    `upi://pay?pa=${encodeURIComponent(upiID)}&pn=${encodeURIComponent(merchantName)}&tn=${encodeURIComponent(transactionNote)}&am=${total}&cu=INR`;
+  // UNIQUE TRANSACTION ID
+  const txnID = "TXN" + Date.now();
+
+  // REAL UPI PAYMENT URL
+  const upiURL =
+    `upi://pay?` +
+    `pa=${encodeURIComponent(upiID)}` +
+    `&pn=${encodeURIComponent(merchantName)}` +
+    `&tr=${txnID}` +
+    `&tn=${encodeURIComponent(note)}` +
+    `&am=${total}` +
+    `&cu=INR`;
 
   // CHECK MOBILE
   const isMobile =
     /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  if(isMobile){
-
-    // OPEN GPAY
-    window.location.href = upiLink;
-
-  }else{
+  if (!isMobile) {
 
     alert(
       "Open this website on mobile for Google Pay payment."
     );
 
     return;
+
   }
 
   // SHOW LOADER
   const loader = document.getElementById("loader");
 
-  loader.style.display = "block";
+  if (loader) {
 
-  // WAIT FOR PAYMENT
+    loader.style.display = "block";
+
+  }
+
+  // OPEN GPAY
+  window.location.href = upiURL;
+
+  // WAIT FOR USER TO RETURN
   setTimeout(() => {
 
-    loader.style.display = "none";
+    if (loader) {
 
-    const success = confirm(
+      loader.style.display = "none";
+
+    }
+
+    const paymentSuccess = confirm(
       "Did payment complete successfully?"
     );
 
-    if(success){
+    if (paymentSuccess) {
 
       saveOrder("Google Pay");
 
       window.location.href = "success.html";
 
-    }else{
+    } else {
 
-      alert("Payment not completed");
+      alert("Payment Cancelled");
 
     }
 
-  }, 8000);
+  }, 10000);
 
 }
 
 // CARD PAYMENT
 
-function payWithCard(){
+function payWithCard() {
 
-  if(!validateShipping()) return;
+  if (!validateShipping()) return;
 
   const cardName =
     document.getElementById("cardName").value;
@@ -462,23 +494,24 @@ function payWithCard(){
   const cvv =
     document.getElementById("cvv").value;
 
-  if(
+  if (
     cardName === "" ||
     cardNumber.length !== 16 ||
     expiry === "" ||
     cvv.length !== 3
-  ){
+  ) {
 
     alert("Invalid Card Details");
 
     return;
+
   }
 
   const loader = document.getElementById("loader");
 
   loader.style.display = "block";
 
-  setTimeout(()=>{
+  setTimeout(() => {
 
     loader.style.display = "none";
 
@@ -486,19 +519,20 @@ function payWithCard(){
 
     window.location.href = "success.html";
 
-  },3000);
+  }, 3000);
 
 }
 
 // CASH ON DELIVERY
 
-function placeCODOrder(){
+function placeCODOrder() {
 
-  if(!validateShipping()) return;
+  if (!validateShipping()) return;
 
   saveOrder("Cash On Delivery");
 
   window.location.href = "success.html";
+
 }
 
 // SUCCESS PAGE
@@ -506,13 +540,13 @@ function placeCODOrder(){
 const successDetails =
   document.getElementById("successDetails");
 
-if(successDetails){
+if (successDetails) {
 
   const order = JSON.parse(
     localStorage.getItem("latestOrder")
   );
 
-  if(order){
+  if (order) {
 
     successDetails.innerHTML = `
 
@@ -543,5 +577,7 @@ if(successDetails){
       </p>
 
     `;
+
   }
+
 }
