@@ -360,77 +360,75 @@ function saveOrder(paymentMethod){
     JSON.stringify(order)
   );
 
-  // CLEAR CART ONLY AFTER SUCCESS
   localStorage.removeItem("cart");
 
   cart = [];
 
 }
 
-// GOOGLE PAY REAL UPI FLOW
+// GOOGLE PAY UPDATED FLOW
 
 function payWithGPay() {
 
-  if(!validateShipping()) return;
+  if (!validateShipping()) return;
 
-  if(cart.length === 0){
+  if (cart.length === 0) {
 
-    alert("Your cart is empty");
+    alert("Cart is empty");
 
     return;
   }
 
-  const total = cart.reduce((acc,item)=>{
+  const total = cart.reduce((acc, item) => {
     return acc + item.price * item.quantity;
-  },0);
+  }, 0);
 
   // YOUR REAL UPI ID
   const upiID = "gopikavenkatram2006@oksbi";
 
   // STORE NAME
-  const merchant = "GlowMart";
+  const merchantName = "GlowMart";
 
   // PAYMENT NOTE
-  const note = "Order Payment";
+  const transactionNote = "Shopping Payment";
 
-  // UPI LINK
-  const upiURL =
-    `upi://pay?pa=${upiID}&pn=${merchant}&am=${total}&cu=INR&tn=${note}`;
+  // ENCODED UPI LINK
+  const upiLink =
+    `upi://pay?pa=${encodeURIComponent(upiID)}&pn=${encodeURIComponent(merchantName)}&tn=${encodeURIComponent(transactionNote)}&am=${total}&cu=INR`;
 
-  // MOBILE DEVICE
+  // CHECK MOBILE
   const isMobile =
     /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   if(isMobile){
 
-    // OPEN REAL GPAY APP
-    window.location.href = upiURL;
+    // OPEN GPAY
+    window.location.href = upiLink;
 
   }else{
 
-    // DESKTOP FALLBACK
     alert(
-      "Open this website on your mobile to use real Google Pay payment."
+      "Open this website on mobile for Google Pay payment."
     );
 
     return;
   }
 
-  // LOADER
+  // SHOW LOADER
   const loader = document.getElementById("loader");
 
   loader.style.display = "block";
 
-  // WAIT AFTER RETURNING FROM GPAY
-  setTimeout(()=>{
+  // WAIT FOR PAYMENT
+  setTimeout(() => {
 
     loader.style.display = "none";
 
-    const paid = confirm(
-      "Did you complete the payment successfully?"
+    const success = confirm(
+      "Did payment complete successfully?"
     );
 
-    if(paid){
+    if(success){
 
       saveOrder("Google Pay");
 
@@ -438,11 +436,11 @@ function payWithGPay() {
 
     }else{
 
-      alert("Payment Cancelled");
+      alert("Payment not completed");
 
     }
 
-  },8000);
+  }, 8000);
 
 }
 
