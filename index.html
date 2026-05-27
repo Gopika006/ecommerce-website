@@ -1,243 +1,55 @@
-<!-- products.html -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
-
-  <title>All Products</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GlowMart Ecommerce</title>
 
   <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
 <header>
 
-  <div class="logo">
-    MyShop
-  </div>
+  <div class="logo">GlowMart</div>
+
+  <input type="text" id="searchInput" placeholder="Search products...">
 
   <nav>
-
     <a href="index.html">Home</a>
-
-    <a href="products.html">
-      Products
-    </a>
-
     <a href="cart.html">
-      Cart
-      (<span id="cart-count">0</span>)
+      Cart (<span id="cartCount">0</span>)
     </a>
-
   </nav>
 
 </header>
 
-<h1 class="page-title">
-  All Products
-</h1>
+<section class="hero">
 
-<input
-type="text"
-id="searchInput"
-placeholder="Search Products..."
-class="search-bar"
-onkeyup="searchProducts()">
+  <div class="hero-content">
+    <h1>Modern Ecommerce Website</h1>
+    <p>Fashion • Makeup • Kitchen • Accessories</p>
 
-<section class="products-grid">
-
-<!-- DRESS -->
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800">
-
-<h3>Party Dress</h3>
-
-<p>
-<del>₹2999</del>
-₹1999
-</p>
-
-<button onclick="addToCart(
-'Party Dress',
-1999,
-'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800'
-)">
-Add To Cart
-</button>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800">
-
-<h3>Casual Dress</h3>
-
-<p>
-<del>₹2499</del>
-₹1499
-</p>
-
-<button onclick="addToCart(
-'Casual Dress',
-1499,
-'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800'
-)">
-Add To Cart
-</button>
-
-</div>
-
-<!-- SKINCARE -->
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=800">
-
-<h3>Face Serum</h3>
-
-<p>
-<del>₹999</del>
-₹699
-</p>
-
-<button onclick="addToCart(
-'Face Serum',
-699,
-'https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=800'
-)">
-Add To Cart
-</button>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800">
-
-<h3>Face Wash</h3>
-
-<p>
-<del>₹599</del>
-₹399
-</p>
-
-<button onclick="addToCart(
-'Face Wash',
-399,
-'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800'
-)">
-Add To Cart
-</button>
-
-</div>
-
-<!-- MAKEUP -->
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800">
-
-<h3>Lipstick Kit</h3>
-
-<p>
-<del>₹1999</del>
-₹1299
-</p>
-
-<button onclick="addToCart(
-'Lipstick Kit',
-1299,
-'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800'
-)">
-Add To Cart
-</button>
-
-</div>
-
-<div class="product-card">
-<img src="images/foundation.jpg">
-
-<h3>Foundation</h3>
-
-<p>
-<del>₹1499</del>
-₹999
-</p>
-
-<button onclick="addToCart(
-'Foundation',
-999,
-'images/foundation.jpg'
-)">
-Add To Cart
-</button>
-
-</div>
-
-<!-- KITCHEN -->
-
-<div class="product-card">
-
-<img src="images/kitchenset.jpg">
-
-<h3>Cookware Set</h3>
-
-<p>
-<del>₹4999</del>
-₹2999
-</p>
-
-<button onclick="addToCart(
-'Cookware Set',
-2999,
-'images/kitchenset.jpg'
-)">
-Add To Cart
-</button>
-
-</div>
-
-<div class="product-card">
-
-<img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?q=80&w=800">
-
-<h3>Knife Set</h3>
-
-<p>
-<del>₹1999</del>
-₹1299
-</p>
-
-<button onclick="addToCart(
-'Knife Set',
-1299,
-'https://images.unsplash.com/photo-1516594798947-e65505dbb29d?q=80&w=800'
-)">
-Add To Cart
-</button>
-
-</div>
+    <a href="#products" class="shop-btn">
+      Shop Now
+    </a>
+  </div>
 
 </section>
 
+<section class="categories">
+
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('dress')">Dress</button>
+  <button onclick="filterProducts('makeup')">Makeup</button>
+  <button onclick="filterProducts('skincare')">Skincare</button>
+  <button onclick="filterProducts('kitchen')">Kitchen</button>
+  <button onclick="filterProducts('accessories')">Accessories</button>
+
+</section>
+
+<section class="products" id="products"></section>
+
 <script src="script.js"></script>
-
-<script>
-
-updateCartCount();
-
-</script>
-
 </body>
 </html>

@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-  <title>All Products</title>
+<meta charset="UTF-8">
 
-  <link rel="stylesheet" href="style.css">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>MyShop</title>
+
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
@@ -12,108 +19,86 @@
 
 <header>
 
-  <div class="logo">MyShop</div>
+<div class="logo">
 
-  <nav>
+MyShop
 
-    <a href="index.html">Home</a>
+</div>
 
-    <a href="products.html">Products</a>
+<nav>
 
-    <a href="cart.html">
-      Cart (<span id="cart-count">0</span>)
-    </a>
+<a href="index.html">
+Home
+</a>
 
-  </nav>
+<a href="products.html">
+Products
+</a>
+
+<a href="cart.html">
+Cart
+(<span id="cart-count">0</span>)
+</a>
+
+</nav>
 
 </header>
 
-<h1 class="title">All Products</h1>
+<section class="hero">
 
-<input
-type="text"
-id="searchInput"
-placeholder="Search Products..."
-onkeyup="searchProducts()"
-class="search-bar">
+<h1>
+Welcome To MyShop
+</h1>
 
-<section class="products-grid">
+<p>
+Best Shopping Website
+</p>
 
-<!-- DRESS -->
+<a href="products.html">
 
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800">
-<h3>Party Dress</h3>
-<p><del>₹2999</del> ₹1999</p>
+<button>
 
-<button onclick="addToCart(
-'Party Dress',
-1999,
-'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800'
-)">
-Add To Cart
+Shop Now
+
 </button>
+
+</a>
+
+</section>
+
+<section class="categories">
+
+<div class="category-card">
+
+<a href="products.html">
+
+<img src="images/foundation.jpg">
+
+<h2>
+Makeup
+</h2>
+
+</a>
 
 </div>
 
-<!-- SKINCARE -->
+<div class="category-card">
 
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=800">
-<h3>Face Serum</h3>
-<p><del>₹999</del> ₹699</p>
+<a href="products.html">
 
-<button onclick="addToCart(
-'Face Serum',
-699,
-'https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=800'
-)">
-Add To Cart
-</button>
+<img src="images/kitchenset.jpg">
 
-</div>
+<h2>
+Kitchen
+</h2>
 
-<!-- MAKEUP -->
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800">
-<h3>Lipstick Kit</h3>
-<p><del>₹1999</del> ₹1299</p>
-
-<button onclick="addToCart(
-'Lipstick Kit',
-1299,
-'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800'
-)">
-Add To Cart
-</button>
-
-</div>
-
-<!-- KITCHEN -->
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1584990347449-a8235d0b4e5c?q=80&w=800">
-<h3>Cookware Set</h3>
-<p><del>₹4999</del> ₹2999</p>
-
-<button onclick="addToCart(
-'Cookware Set',
-2999,
-'https://images.unsplash.com/photo-1584990347449-a8235d0b4e5c?q=80&w=800'
-)">
-Add To Cart
-</button>
+</a>
 
 </div>
 
 </section>
 
 <script src="script.js"></script>
-
-<script>
-updateCartCount();
-</script>
 
 </body>
 </html>

@@ -1,86 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Success</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Order Success</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="success-container">
+<div class="success-page">
 
-<div class="success-box">
+  <div class="success-box">
 
-<h1>
-Order Successful
-</h1>
+    <div class="success-icon">✔</div>
 
-<p>
-Your order has been placed successfully.
-</p>
+    <h1>Order Placed Successfully</h1>
 
-<h3>
-Payment Method:
-<span id="payment-method"></span>
-</h3>
+    <div id="successDetails"></div>
 
-<h3>
-Order Date:
-<span id="order-date"></span>
-</h3>
+    <a href="tracking.html" class="track-btn">
+      Track Order
+    </a>
 
-<h3>
-Expected Delivery:
-<span id="delivery-date"></span>
-</h3>
-
-<a href="tracking.html">
-
-<button>
-
-Track Your Order
-
-</button>
-
-</a>
+  </div>
 
 </div>
 
-</div>
-
-<script>
-
-document.getElementById(
-"payment-method"
-).innerText =
-localStorage.getItem(
-"paymentMethod"
-);
-
-document.getElementById(
-"order-date"
-).innerText =
-localStorage.getItem(
-"orderDate"
-);
-
-document.getElementById(
-"delivery-date"
-).innerText =
-localStorage.getItem(
-"deliveryDate"
-);
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

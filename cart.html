@@ -1,74 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
-
-  <title>Shopping Cart</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart</title>
 
   <link rel="stylesheet" href="style.css">
-
 </head>
+<body>
 
-<body onload="displayCart()">
+<div class="cart-page">
 
-<header>
+  <h1>Your Cart</h1>
 
-  <div class="logo">
-    MyShop
-  </div>
+  <div id="cartItems"></div>
 
-  <nav>
+  <h2 id="cartTotal">Total: ₹0</h2>
 
-    <a href="index.html">Home</a>
-
-    <a href="products.html">
-      Products
-    </a>
-
-    <a href="cart.html">
-      Cart
-      (<span id="cart-count">0</span>)
-    </a>
-
-  </nav>
-
-</header>
-
-<div class="cart-container">
-
-  <h1 class="cart-title">
-    Your Shopping Cart
-  </h1>
-
-  <div id="cart-items">
-
-  </div>
-
-  <div class="cart-summary">
-
-    <h2>
-      Total:
-      ₹<span id="total-price">0</span>
-    </h2>
-
-    <button
-    id="checkout-btn"
-    onclick="goToCheckout()">
-
-      Proceed To Payment
-
-    </button>
-
-  </div>
+  <a href="checkout.html" class="checkout-btn">
+    Proceed To Checkout
+  </a>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>

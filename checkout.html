@@ -1,127 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Checkout</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
-
-<body onload="loadCheckout()">
-
-<header>
-
-<div class="logo">
-MyShop
-</div>
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="products.html">
-Products
-</a>
-
-<a href="cart.html">
-Cart
-(<span id="cart-count">0</span>)
-</a>
-
-</nav>
-
-</header>
+<body>
 
 <div class="checkout-container">
 
-<h1 class="page-title">
-Checkout
-</h1>
+  <div class="checkout-box">
 
-<div class="checkout-box">
+    <h2>Shipping Details</h2>
 
-<div id="checkout-items">
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="address" placeholder="Address">
+    <input type="text" id="city" placeholder="City">
+    <input type="text" id="pincode" placeholder="Pincode">
 
-</div>
+    <div id="cardFields" class="hidden">
 
-<div class="checkout-total">
+      <h2>Card Details</h2>
 
-<h2>
-Grand Total:
-₹<span id="checkout-total">0</span>
-</h2>
+      <input type="text" id="cardName" placeholder="Card Holder Name">
+      <input type="text" id="cardNumber" placeholder="Card Number">
+      <input type="text" id="expiry" placeholder="MM/YY">
+      <input type="text" id="cvv" placeholder="CVV">
 
-</div>
+      <button class="card-btn" onclick="payWithCard()">
+        Confirm Card Payment
+      </button>
 
-<h2 class="payment-title">
-Choose Payment Method
-</h2>
+    </div>
 
-<div class="payment-options">
+    <button class="gpay-btn" onclick="payWithGPay()">
+      Pay With Google Pay
+    </button>
 
-<label class="payment-option">
+    <button class="card-btn" onclick="showCardFields()">
+      Pay With Card
+    </button>
 
-<input
-type="radio"
-name="payment"
-value="gpay"
-checked>
+    <button class="cod-btn" onclick="placeCODOrder()">
+      Cash On Delivery
+    </button>
 
-Google Pay
+    <div class="loader" id="loader"></div>
 
-</label>
+  </div>
 
-<label class="payment-option">
+  <div class="summary-box">
 
-<input
-type="radio"
-name="payment"
-value="card">
+    <h2>Order Summary</h2>
 
-Credit / Debit Card
+    <div id="checkoutItems"></div>
 
-</label>
+    <h2 id="checkoutTotal"></h2>
 
-<label class="payment-option">
-
-<input
-type="radio"
-name="payment"
-value="cod">
-
-Cash On Delivery
-
-</label>
-
-</div>
-
-<div id="upi-box">
-
-<input
-type="text"
-id="upi-id"
-placeholder="Enter UPI ID">
-
-</div>
-
-<button onclick="placeOrder()">
-
-Place Order
-
-</button>
-
-</div>
+  </div>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
